@@ -1,0 +1,17 @@
+{
+  "name": "pong-svg",
+  "version": "0.1.0",
+  "description": "An SVG Pong game.",
+  "license": "ISC",
+  "author": "Your Name <email@email.com>",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "parcel index.html -p 3000",
+    "predeploy": "rm -rf dist && parcel build index.html --public-url /YOUR-REPO-NAME",
+    "deploy": "gh-pages -d dist"
+  },
+  "devDependencies": {
+    "gh-pages": "^2.0.1",
+    "parcel-bundler": "^1.12.3"
+  }
+}
