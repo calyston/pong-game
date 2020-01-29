@@ -14,6 +14,10 @@ export default class Game {
 
     this.board = new Board(this.width, this.height);
 
+    this.ballRadius = 8;
+
+    this.ball = new Ball(this.width, this.height, this.ballRadius);
+
     this.paddleWidth = 8;
     this.paddleHeight = 56;
     this.boardGap = 10;
@@ -25,26 +29,37 @@ export default class Game {
       this.boardGap,
       (this.height - this.paddleHeight) / 2,
       KEYS.w,
-      KEYS.s,
-
-      (this.player2 = new Paddle(
-        this.height,
-        this.paddleWidth,
-        this.paddleHeight,
-        this.width - this.boardGap - this.paddleWidth,
-        (this.height - this.paddleHeight) / 2,
-        KEYS.up,
-        KEYS.down
-      ))
+      KEYS.s
+    );
+    this.player2 = new Paddle(
+      this.height,
+      this.paddleWidth,
+      this.paddleHeight,
+      this.width - this.boardGap - this.paddleWidth,
+      (this.height - this.paddleHeight) / 2,
+      KEYS.up,
+      KEYS.down
     );
 
-    this.ballRadius = 8;
-
-    this.ball = new Ball(this.width / 2, this.height / 2, this.ballRadius);
+    document.addEventListener("keydown", event => {
+      switch (event.key) {
+        case KEYS.spaceBar:
+          this.pause = !this.pause;
+          this.player1.speed = 10;
+          this.player2.speed = 10;
+          break;
+      }
+    });
   }
 
   render() {
     // More code goes here....
+    if (this.pause) {
+      this.player1.speed = 0;
+      this.player2.speed = 0;
+      return;
+    }
+
     this.gameElement.innerHTML = "";
 
     let svg = document.createElementNS(SVG_NS, "svg");
@@ -57,6 +72,6 @@ export default class Game {
     this.player1.render(svg);
     this.player2.render(svg);
 
-    this.ball.render(svg);
+    this.ball.render(svg, this.player1, this.player2);
   }
 }
