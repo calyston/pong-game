@@ -5,6 +5,12 @@ export default class Ball {
     this.cx = cx;
     this.cy = cy;
     this.r = r;
+    this.direction = 1;
+    //resets ball in the middle of the board
+    this.reset();
+  }
+  reset() {
+    //code to centre ball and for movement
   }
 
   render(svg) {

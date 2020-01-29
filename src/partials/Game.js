@@ -1,4 +1,4 @@
-import { SVG_NS } from "../settings.js";
+import { SVG_NS, KEYS } from "../settings.js";
 import Board from "./Board.js";
 import Paddle from "./Paddle.js";
 import Ball from "./Ball.js";
@@ -24,13 +24,17 @@ export default class Game {
       this.paddleHeight,
       this.boardGap,
       (this.height - this.paddleHeight) / 2,
+      KEYS.w,
+      KEYS.s,
 
       (this.player2 = new Paddle(
         this.height,
         this.paddleWidth,
         this.paddleHeight,
         this.width - this.boardGap - this.paddleWidth,
-        (this.height - this.paddleHeight) / 2
+        (this.height - this.paddleHeight) / 2,
+        KEYS.up,
+        KEYS.down
       ))
     );
 
