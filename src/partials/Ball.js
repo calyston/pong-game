@@ -1,4 +1,5 @@
 import { SVG_NS } from "../settings";
+import pingSound from "../../public/sounds/pong-02.wav";
 
 export default class Ball {
   constructor(boardWidth, boardHeight, radius) {
@@ -6,6 +7,7 @@ export default class Ball {
     this.boardHeight = boardHeight;
     this.radius = radius;
     this.direction = 1;
+    this.ping = new Audio(pingSound);
     //resets ball in the middle of the board
     this.reset();
   }
@@ -37,8 +39,10 @@ export default class Ball {
         this.x + this.radius <= rightX &&
         this.y >= topY &&
         this.y <= bottomY
-      )
-        this.vx = -this.vx;
+      ) {
+        this.ping.play();
+        this.vx = -this.vx * 1.1;
+      }
     }
     //else detect paddle of player 1
     else {
@@ -54,8 +58,10 @@ export default class Ball {
         this.x - this.radius <= rightX &&
         this.y >= topY &&
         this.y <= bottomY
-      )
-        this.vx = -this.vx;
+      ) {
+        this.ping.play();
+        this.vx = -this.vx * 1.1;
+      }
     }
   }
 

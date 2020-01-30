@@ -58,7 +58,6 @@ export default class Game {
   }
 
   render() {
-    // More code goes here....
     if (this.pause) {
       this.player1.speed = 0;
       this.player2.speed = 0;
