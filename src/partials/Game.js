@@ -3,6 +3,7 @@ import Board from "./Board.js";
 import Paddle from "./Paddle.js";
 import Ball from "./Ball.js";
 import Score from "./Score.js";
+import Music from "../../public/sounds/passing-breeze.mp3";
 
 export default class Game {
   constructor(element, width, height) {
@@ -10,6 +11,7 @@ export default class Game {
     this.width = width;
     this.height = height;
     this.pause = true;
+    this.music = new Audio(Music);
 
     // Other code goes here...
     this.gameElement = document.getElementById(this.element);
@@ -53,6 +55,7 @@ export default class Game {
           this.pause = !this.pause;
           this.player1.speed = 10;
           this.player2.speed = 10;
+          this.music.play();
           break;
       }
     });
@@ -62,6 +65,7 @@ export default class Game {
     if (this.pause) {
       this.player1.speed = 0;
       this.player2.speed = 0;
+      this.music.pause();
       return;
     }
 
