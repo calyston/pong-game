@@ -7,28 +7,41 @@ export default class Paddle {
     this.height = height;
     this.x = x;
     this.y = y;
-    this.speed = 20;
+    this.speed = 5;
     this.score = 0;
+    this.up = false;
+    this.down = false;
 
     document.addEventListener("keydown", event => {
       switch (event.key) {
         case up:
-          this.up();
+          this.up = true;
           break;
         case down:
-          this.down();
+          this.down = true;
+          break;
+      }
+    });
+
+    document.addEventListener("keyup", event => {
+      switch (event.key) {
+        case up:
+          this.up = false;
+          break;
+        case down:
+          this.down = false;
           break;
       }
     });
   }
 
-  up() {
-    this.y = Math.max(0, this.y - this.speed);
-  }
+  // up() {
+  //   this.y = Math.max(0, this.y - this.speed);
+  // }
 
-  down() {
-    this.y = Math.min(this.boardHeight - this.height, this.y + this.speed);
-  }
+  // down() {
+  //   this.y = Math.min(this.boardHeight - this.height, this.y + this.speed);
+  // }
 
   coordinates(x, y, width, height) {
     let leftX = x;
@@ -39,6 +52,13 @@ export default class Paddle {
   }
 
   render(svg) {
+    if (this.up) {
+      this.y = Math.max(0, this.y - this.speed);
+    }
+
+    if (this.down) {
+      this.y = Math.min(this.boardHeight - this.height, this.y + this.speed);
+    }
     let rect = document.createElementNS(SVG_NS, "rect");
     rect.setAttributeNS(null, "width", this.width);
     rect.setAttributeNS(null, "height", this.height);
