@@ -11,11 +11,11 @@ export default class Ball {
     //resets ball in the middle of the board
     this.reset();
   }
+
   reset() {
     //code to centre ball and for movement
     this.x = this.boardWidth / 2;
     this.y = this.boardHeight / 2;
-    //generates random number between -5 and 5
     this.vy = 0;
     while (this.vy === 0) {
       this.vy = Math.floor(Math.random() * 10 - 5);
@@ -41,7 +41,7 @@ export default class Ball {
         this.y <= bottomY
       ) {
         this.ping.play();
-        this.vx = -this.vx * 1.1;
+        this.vx = -this.vx * 1.05;
       }
     }
     //else detect paddle of player 1
@@ -60,7 +60,7 @@ export default class Ball {
         this.y <= bottomY
       ) {
         this.ping.play();
-        this.vx = -this.vx * 1.1;
+        this.vx = -this.vx * 1.05;
       }
     }
   }
@@ -77,9 +77,21 @@ export default class Ball {
     }
   }
 
-  goal(player) {
-    player.score++;
-    console.log(player.score);
+  goal(playerWhoScored, otherPlayer) {
+    playerWhoScored.score++;
+    console.log(playerWhoScored.score);
+
+    if (playerWhoScored.score === 5) {
+      playerWhoScored.height = playerWhoScored.height + 20;
+    }
+    if (playerWhoScored.score === 10) {
+      playerWhoScored.height = playerWhoScored.height + 20;
+    }
+    if (otherPlayer.score >= 10 && playerWhoScored.score === 10) {
+      otherPlayer.height = otherPlayer.height - 40;
+      playerWhoScored.height = playerWhoScored.height - 40;
+    }
+
     this.reset();
   }
 
@@ -103,10 +115,10 @@ export default class Ball {
     const leftGoal = this.x - this.radius <= 0;
 
     if (rightGoal) {
-      this.goal(player1);
+      this.goal(player1, player2);
       this.direction = 1;
     } else if (leftGoal) {
-      this.goal(player2);
+      this.goal(player2, player1);
       this.direction = -1;
     }
   }

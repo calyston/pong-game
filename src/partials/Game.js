@@ -9,6 +9,7 @@ export default class Game {
     this.element = element;
     this.width = width;
     this.height = height;
+    this.pause = true;
 
     // Other code goes here...
     this.gameElement = document.getElementById(this.element);
