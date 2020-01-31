@@ -7,7 +7,7 @@ export default class Paddle {
     this.height = height;
     this.x = x;
     this.y = y;
-    this.speed = 5;
+    this.speed = 10;
     this.score = 0;
     this.up = false;
     this.down = false;
@@ -34,14 +34,6 @@ export default class Paddle {
       }
     });
   }
-
-  // up() {
-  //   this.y = Math.max(0, this.y - this.speed);
-  // }
-
-  // down() {
-  //   this.y = Math.min(this.boardHeight - this.height, this.y + this.speed);
-  // }
 
   coordinates(x, y, width, height) {
     let leftX = x;
