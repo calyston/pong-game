@@ -81,6 +81,8 @@ export default class Ball {
     playerWhoScored.score++;
     console.log(playerWhoScored.score);
 
+    //if the playerWhoScored has an x position of 10 we know that that was the player1
+
     if (playerWhoScored.score === 5) {
       playerWhoScored.height = playerWhoScored.height + 20;
     }
@@ -90,6 +92,13 @@ export default class Ball {
     if (otherPlayer.score >= 10 && playerWhoScored.score === 10) {
       otherPlayer.height = otherPlayer.height - 40;
       playerWhoScored.height = playerWhoScored.height - 40;
+    }
+    if (playerWhoScored.score === 20 && playerWhoScored.x === 10) {
+      alert("Game Over! Player 1 wins! Press 'Ok' to return to title.");
+      location.reload();
+    } else if (playerWhoScored.score === 20 && playerWhoScored.x !== 10) {
+      alert("Game Over! Player 2 wins! Press 'Ok' to return to title.");
+      location.reload();
     }
 
     this.reset();
