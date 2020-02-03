@@ -1,6 +1,6 @@
-# Pong Game Starter
+### Pong Game
 
-A starter project for a basic pong game using SVGs.
+A starter project for a basic pong game using SVGs. Background, logo, and music belong to SEGA's Out Run (1986).
 
 ## Setup
 
@@ -18,9 +18,15 @@ Once you run the start command you can access your project at http://localhost:3
 
 Read more about the [Parcel web application bundler here](https://parceljs.org/).
 
-## Deploy
+## Technologies Used:
 
-The deployment workflow for this project will be a bit different from what you've used when deploying simple static websites.
+HTML, CSS, JavaScript, SVG.
+
+## Personal Learnings
+
+Learnt how to work with SVGs and developed JavaScript skills in order to perform basic animations for the game. Added a retro video game background using CSS and the music from the game using JavaScript to coincide with the retro theme of Pong.
+
+## Deploy
 
 To deploy your finished Pong project as a GitHub page, you must first **update the `predeploy` script in the `package.json` file with the name of your repo.**
 
@@ -39,3 +45,6 @@ Once you have done this, you can run:
 `$ npm run deploy`
 
 Now check out your deployed site 🙂
+
+Contributor: Christine Lyston
+Date: 02.02.20
