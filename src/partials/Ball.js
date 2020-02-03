@@ -8,12 +8,10 @@ export default class Ball {
     this.radius = radius;
     this.direction = 1;
     this.ping = new Audio(pingSound);
-    //resets ball in the middle of the board
     this.reset();
   }
 
   reset() {
-    //code to centre ball and for movement
     this.x = this.boardWidth / 2;
     this.y = this.boardHeight / 2;
     this.vy = 0;
@@ -25,7 +23,6 @@ export default class Ball {
   }
 
   paddleCollision(player1, player2) {
-    //if vx is greater than zero, detect paddle of player 2
     if (this.vx > 0) {
       let paddle = player2.coordinates(
         player2.x,
@@ -81,8 +78,6 @@ export default class Ball {
     playerWhoScored.score++;
     console.log(playerWhoScored.score);
 
-    //if the playerWhoScored has an x position of 10 we know that that was the player1
-
     if (playerWhoScored.score === 5) {
       playerWhoScored.height = playerWhoScored.height + 20;
     }
@@ -93,11 +88,11 @@ export default class Ball {
       otherPlayer.height = otherPlayer.height - 40;
       playerWhoScored.height = playerWhoScored.height - 40;
     }
-    if (playerWhoScored.score === 20 && playerWhoScored.x === 10) {
-      alert("Game Over! Player 1 wins! Press 'Ok' to return to title.");
+    if (playerWhoScored.score === 15 && playerWhoScored.x === 10) {
+      alert("Game Over! Player 1 wins! Press 'OK' to return to title.");
       location.reload();
-    } else if (playerWhoScored.score === 20 && playerWhoScored.x !== 10) {
-      alert("Game Over! Player 2 wins! Press 'Ok' to return to title.");
+    } else if (playerWhoScored.score === 15 && playerWhoScored.x !== 10) {
+      alert("Game Over! Player 2 wins! Press 'OK' to return to title.");
       location.reload();
     }
 
@@ -113,7 +108,7 @@ export default class Ball {
     this.paddleCollision(player1, player2);
 
     let ball = document.createElementNS(SVG_NS, "circle");
-    //your code here
+
     ball.setAttributeNS(null, "cx", this.x);
     ball.setAttributeNS(null, "cy", this.y);
     ball.setAttributeNS(null, "r", this.radius);

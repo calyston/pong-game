@@ -13,7 +13,6 @@ export default class Game {
     this.pause = true;
     this.music = new Audio(Music);
 
-    // Other code goes here...
     this.gameElement = document.getElementById(this.element);
 
     this.board = new Board(this.width, this.height);
@@ -56,6 +55,9 @@ export default class Game {
           this.player1.speed = 10;
           this.player2.speed = 10;
           this.music.play();
+
+          let startMessage = document.getElementById("start-game");
+          startMessage.classList.add("hide");
           break;
       }
     });
