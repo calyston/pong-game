@@ -2,6 +2,10 @@
 
 A project for a basic pong game using SVGs. Background, logo, and music belong to SEGA's Out Run (1986).
 
+![](PongGif.gif)
+
+![](PongGif2.gif)
+
 ## How To Play
 * Controls for Player 1: W to move the paddle up, S to move the paddle down.
 * Controls for Player 2: Up Arrow to move the paddle up, Down Arrow to move the paddle down.
@@ -13,7 +17,7 @@ A project for a basic pong game using SVGs. Background, logo, and music belong t
 * If the other player equalizes at 5 points before the first player reaches 10 points, both paddles return to original size. 
 * If one player reaches 10 points and then the other player reaches 5 points, the player who reached 5 points will still see an increase in paddle size.
 * If the other player then reaches 10 points before the first player wins, both paddles return to original size.
-* **First player to reach 15 points win!**
+* **First player to reach 15 points wins!**
 
 ## Technologies Used
 
