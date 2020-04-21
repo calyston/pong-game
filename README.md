@@ -14,7 +14,6 @@ A project for a basic pong game using SVGs. Background, logo, and music belong t
 ## Rules
 * The first player to reach 5 points gets an increase in their paddle size. 
 * If the same player reaches 10 points, they see another increase in their paddle size. 
-* If the other player equalizes at 5 points before the first player reaches 10 points, both paddles return to original size. 
 * If one player reaches 10 points and then the other player reaches 5 points, the player who reached 5 points will still see an increase in paddle size.
 * If the other player then reaches 10 points before the first player wins, both paddles return to original size.
 * **First player to reach 15 points wins!**
