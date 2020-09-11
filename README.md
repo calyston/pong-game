@@ -1,6 +1,6 @@
 # Pong Game
 
-A project for a basic pong game using SVGs. This project was developed from a pong starter pack made by RED Academy. Background, logo, and music belong to SEGA's Out Run (1986).
+A project for a basic pong game using SVGs. This project was developed from a pong starter made by RED Academy. Background, logo, and music belong to SEGA's Out Run (1986).
 
 ![](PongGif.gif)
 
