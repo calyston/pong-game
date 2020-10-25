@@ -6,7 +6,7 @@
   "author": "Your Name <email@email.com>",
   "main": "src/index.js",
   "scripts": {
-    "start": "parcel index.html",
+    "start": "parcel index.html -p 3000",
     "predeploy": "rm -rf dist && parcel build index.html --public-url /YOUR-REPO-NAME",
     "deploy": "gh-pages -d dist"
   },
